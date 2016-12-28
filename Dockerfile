@@ -9,12 +9,15 @@ RUN layer=awscli \
     boto3 \
     botocore
 
-RUN layer=ansible_prerequisites \
+RUN layer=ansible \
   apk add --no-cache \
     build-base \
     libffi-dev \
-    openssl-dev
+    openssl-dev \
+    && pip install --upgrade \
+       ansible==2.2.0.0 \
+    && \
+      apk del --no-cache build-base \
+      libffi-dev \
+      openssl-dev
 
-RUN layer=ansible \
-  pip install --upgrade \
-    ansible==2.2.0.0
