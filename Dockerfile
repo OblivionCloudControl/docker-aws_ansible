@@ -23,3 +23,6 @@ RUN layer=ansible \
   && \
     apk del .build-deps
 
+RUN LAYER=docker \
+    apk add --no-cache docker
+
