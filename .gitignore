@@ -1,0 +1,16 @@
+# PyCharm
+.idea/
+
+# Sublime stuff
+*.sublime-project
+*.sublime-workspace
+
+# Vim swap files
+*.swp
+*.swo
+
+# OSX
+.DS_Store
+
+# Build products
+*.py[co]
