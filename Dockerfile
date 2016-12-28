@@ -13,12 +13,13 @@ RUN layer=awscli \
     botocore
 
 RUN layer=ansible \
-  apk add --no-cache --virtual .build-deps \
-    build-base \
-    libffi-dev \
-    openssl-dev \
-    && pip install --upgrade \
-       ansible==${ANSIBLE_VERSION} \
-    && \
-      apk del .build-deps
+  apk add --no-cache libstdc++ \
+  && apk add --no-cache --virtual .build-deps \
+     build-base \
+     libffi-dev \
+     openssl-dev \
+  && pip install --upgrade \
+     ansible==${ANSIBLE_VERSION} \
+  && \
+    apk del .build-deps
 
